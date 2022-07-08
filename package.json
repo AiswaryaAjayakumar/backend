@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "expressprgrm",
+  "version": "1.0.0",
+  "description": "This is sample express prgrm",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aiswarya",
+  "license": "ISC"
+}
