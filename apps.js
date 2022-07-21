@@ -1,5 +1,8 @@
 var express=require('express')
 var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+var {studentModel}=require('./models/studentsmodel')
+const { facultyModel } = require('./models/facultyModel')
 
 
 var app = express()
@@ -13,19 +16,17 @@ app.get('/',(req,res)=>{
 })
 
 
-app.post('/add',(req,res)=>{
-    var getNum1= parseFloat (req.body.num1)
-    var getNum2= parseFloat (req.body.num2)
-    var sum=getNum1+getNum2
+app.post('/stud',(req,res)=>{
+   
+    var studentObject = new studentModel(req.body)
 
-    res.json({'sum':sum})
+    res.json(studentObject)
 })
-app.post('/house',(req,res)=>{
-var getName=req.body.name
-var getRoll=req.body.roll
+app.post('/faculty',(req,res)=>{
+    var facultyObject=new facultyModel(req.body)
 
-    res.json({'name':getName,'roll':getRoll})
+    res.json(facultyObject)
 })
-app.listen(process.env.PORT||3003,()=>{
-    console.log("Server started at http://localhost:3003/")
+app.listen(process.env.PORT||3002,()=>{
+    console.log("Server started at http://localhost:3002/")
 })
